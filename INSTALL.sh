@@ -1,13 +1,29 @@
+function downloadOrUpdate()
+{
+    githubRepo = $1
+    repositoryName = $2
+    if [ ! -d $i ]
+     then
+        git clone $githubRepo/$repositoryName
+    else
+        cd $i
+        git pull
+        cd ..
+    fi
+}
+
+
+
 if [ ! -L ~/.vimrc ]
 then
     ln -sv $PWD/vimrc $HOME/.vimrc
 fi
 
-repositories[0]="vim-javascript"
-repositories[1]="vim-handlebars"
-repositories[2]="vim-qml"
-repositories[3]="jade.vim"
-repositories[4]="AutoComplPop"
+user1Repositories[0]="vim-javascript"
+user1Repositories[1]="vim-handlebars"
+user1Repositories[2]="vim-qml"
+user1Repositories[3]="jade.vim"
+user1Repositories[4]="AutoComplPop"
 
 if [ ! -d ~/.vim/autoload ] || [ ! -d ~/.vim/bundle ]
 then
@@ -23,16 +39,9 @@ fi
 
 cd ~/.vim/bundle
 
-for i in ${repositories[@]}
+for i in ${user1Repositories[@]}
 do
-    if [ ! -d $i ]
-     then
-        git clone "https://github.com/terietor/"$i
-    else
-        cd $i
-        git pull
-        cd ..
-    fi
+    downloadOrUpdate "https://githib.com/terietor" $i
 done
 
 
