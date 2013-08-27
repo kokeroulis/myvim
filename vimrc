@@ -1,3 +1,7 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
 syntax enable
 colorscheme kdevelophi
 map <c-o> :cd %:p:h <cr>:tabe %:p:h<cr>
