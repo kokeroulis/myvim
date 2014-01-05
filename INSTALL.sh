@@ -2,8 +2,7 @@ function downloadOrUpdate()
 {
     githubRepo=$1
     repositoryName=$2
-    if [ ! -d $i ]
-     then
+    if [ ! -d $i ]; then
         git clone $githubRepo/$repositoryName
     else
         cd $i
@@ -20,10 +19,7 @@ function info()
 
 info "checking for ~/.vimrc"
 
-if [ ! -L ~/.vimrc ]
-then
-    ln -sv $PWD/vimrc $HOME/.vimrc
-fi
+cp $PWD/vimrc $HOME/.vimrc
 
 user1Repositories[0]="vim-javascript"
 user1Repositories[1]="vim-handlebars"
@@ -36,14 +32,12 @@ user2Repositories[0]="vim-kokeroulis"
 
 info "checking for pathogen"
 
-if [ ! -d ~/.vim/autoload ] || [ ! -d ~/.vim/bundle ]
-then
+if [ ! -d ~/.vim/autoload ] || [ ! -d ~/.vim/bundle ]; then
     mkdir -p ~/.vim/autoload
     mkdir -p ~/.vim/bundle
 fi
 
-if [ ! -f ~/.vim/autoload/pathogen.vim ]
-then
+if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
     curl -Sso ~/.vim/autoload/pathogen.vim \
         https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 fi
@@ -51,13 +45,11 @@ fi
 info "downloading/updating repos"
 cd ~/.vim/bundle
 
-for i in ${user1Repositories[@]}
-do
+for i in ${user1Repositories[@]}; do
     downloadOrUpdate "git://github.com/terietor" $i
 done
 
-for i in ${user2Repositories[@]}
-do
+for i in ${user2Repositories[@]}; do
     downloadOrUpdate "git://github.com/kokeroulis" $i
 done
 
