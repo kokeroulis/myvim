@@ -10,6 +10,9 @@ map <F5> :call BuildGitRepo()<cr>
 map <F6> :call GitDiff()<cr>
 map <F8> :tabn<cr>
 map <F7> :tabp<cr>
+"ctags
+map <F2> :tnext<cr>
+map <F3> :tprevious<cr>
 map s :w<cr>
 map z : :u<cr>
 map <c-z> <c-r><cr>
