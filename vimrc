@@ -1,6 +1,46 @@
-execute pathogen#infect()
-syntax on
+" be iMproved, required
+set nocompatible
+
+" required
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#rc()
+" alternatively, pass a path where Vundle should install plugins
+"let path = '~/some/path/here'
+"call vundle#rc(path)
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between here and filetype plugin indent on.
+" scripts on GitHub repos
+Plugin 'tpope/vim-fugitive'
+Plugin 'terietor/vim-javascript'
+Plugin 'terietor/vim-handlebars'
+Plugin 'terietor/vim-qml'
+Plugin 'terietor/jade.vim'
+Plugin 'terietor/AutoComplPop'
+Plugin 'kokeroulis/vim-kokeroulis'
+Plugin 'airblade/vim-gitgutter'
+
+" required
 filetype plugin indent on
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Plugin commands are not allowed.
+" Put your stuff after this line
 
 syntax enable
 colorscheme kdevelophi
@@ -10,9 +50,6 @@ map <F5> :call BuildGitRepo()<cr>
 map <F6> :call GitDiff()<cr>
 map <F8> :tabn<cr>
 map <F7> :tabp<cr>
-"ctags
-map <F2> :tnext<cr>
-map <F3> :tprevious<cr>
 map s :w<cr>
 map z : :u<cr>
 map <c-z> <c-r><cr>
