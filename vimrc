@@ -25,6 +25,8 @@ Plugin 'terietor/jade.vim'
 Plugin 'terietor/AutoComplPop'
 Plugin 'kokeroulis/vim-kokeroulis'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'altercation/vim-colors-solarized'
 
 " required
 filetype plugin indent on
@@ -41,9 +43,15 @@ filetype plugin indent on
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
-
+let g:clang_library_path='/usr/lib/'
+let g:clang_complete_auto = 1
+let g:clang_use_library = 1
+let g:clang_debug = 1
 syntax enable
 colorscheme kdevelophi
+
+""set background=dark
+""colorscheme solarized
 map <c-o> :cd %:p:h <cr>:tabe %:p:h<cr>
 map <s-o> :cd %:p:h <cr>:vsplit<cr><c-w><c-w>:edit .<cr>
 map <F5> :call BuildGitRepo()<cr>
@@ -83,6 +91,8 @@ imap <c-v> <Esc><c-v>i
 "or you could create the following alias
 "if [ -e /usr/bin/gvim ]; then alias vim='/usr/bin/gvim -v'; fi
 
+set enc=utf-8
+set fileencoding=utf-8
 "make mouse to work just like in an IDE
 set mouse=a
 
@@ -193,6 +203,7 @@ autocmd BufWrite * :call DeleteTrailingWS()
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python set completeopt=menuone
+autocmd BufRead,BufNewFile *.html setfiletype html
 filetype plugin indent on
 
 function! BuildGitRepo()
@@ -215,3 +226,4 @@ function! GitDiff()
         :cd %:p:h
         :!git diff
 endfunction
+
