@@ -204,6 +204,7 @@ autocmd BufWrite * :call DeleteTrailingWS()
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python set completeopt=menuone
 autocmd BufRead,BufNewFile *.html setfiletype html
+autocmd BufRead,BufNewFile *.tmpl setfiletype tmpl
 filetype plugin indent on
 
 function! BuildGitRepo()
