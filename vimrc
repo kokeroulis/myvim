@@ -27,6 +27,7 @@ Plugin 'kokeroulis/vim-kokeroulis'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
 
 " required
 filetype plugin indent on
@@ -43,16 +44,18 @@ filetype plugin indent on
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
-let g:clang_library_path='/usr/lib/'
-let g:clang_complete_auto = 1
-let g:clang_use_library = 1
-let g:clang_debug = 1
+""let g:clang_library_path='/usr/lib/'
+""let g:clang_complete_auto = 2
+"let g:clang_use_library = 1
+"let g:clang_debug = 1
+let NERDTreeQuitOnOpen=1
 syntax enable
 colorscheme kdevelophi
 
 ""set background=dark
 ""colorscheme solarized
-map <c-o> :cd %:p:h <cr>:tabe %:p:h<cr>
+""map <c-o> :cd %:p:h <cr>:tabe %:p:h<cr>
+map <c-o> :NERDTreeToggle<CR>
 map <s-o> :cd %:p:h <cr>:vsplit<cr><c-w><c-w>:edit .<cr>
 map <F5> :call BuildGitRepo()<cr>
 map <F6> :call GitDiff()<cr>
